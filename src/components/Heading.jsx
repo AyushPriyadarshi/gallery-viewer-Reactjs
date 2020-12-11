@@ -5,6 +5,7 @@ const Header = styled.header`
     max-width:70rem;
     margin:2rem auto;
     text-align:center;
+
 `;
 
 const H1 = styled.h1`
@@ -16,7 +17,7 @@ const Heading = () => {
     return (
         <Header>
             <H1>Gallery</H1>
-            <p>The source of freely usable images</p>
+            <p>The Source of freely usable images</p>
         </Header>
     )
 }

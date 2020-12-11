@@ -23,11 +23,49 @@ const ImageWrapper = styled.section`
 
 const Homepage = () => {
     const [images,setImages] = useState([]);
+    const Timer = ({ initialTime }) => {
+      return <div className="timer">CountDown: {initialTime}</div>;
+    };
+  
+  
+    const [initialTime, setInitialTime] = useState(0);
+    const [startTimer, setStartTimer] = useState(false);
+  
+    const [timerComponent, toggleTimerVisibility] = useState(false)
 
-  useEffect(() => {
-    fetchImages();
+    useEffect(() => {
+      fetchImages();
+    },[]);
 
-  },[])
+  
+    const handleClick = e => {
+        toggleTimerVisibility(true);
+        e.preventDefault();
+        setInitialTime(10);
+        setStartTimer(true);
+        
+    }
+  
+    useEffect(() => {
+      
+      if (initialTime > 0) {
+        setTimeout(() => {
+          console.log("startTime, ", initialTime);
+          setInitialTime(initialTime - 1);
+        }, 1000);
+      }
+  
+      if (initialTime === 0 && startTimer) {
+        console.log("done");
+        setStartTimer(false);
+        setImages([]);
+        fetchImages();
+        
+      }
+    }, [ initialTime, startTimer]);
+
+    
+
 
   const fetchImages = () => {
 
@@ -43,6 +81,11 @@ const Homepage = () => {
   return (
     <div className="App">
       <Heading />
+      <div className="button-align" >
+        <button onClick={handleClick}>New Images</button>
+      </div>
+      {timerComponent ? <Timer initialTime={initialTime} /> :null}
+      
       
       <InfiniteScroll
         dataLength ={images.length}
@@ -50,6 +93,8 @@ const Homepage = () => {
         hasMore = {true}
         loader = {<Loader />}
       >
+
+      
 
       <ImageWrapper>
       {images.map(image => (

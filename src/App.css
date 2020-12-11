@@ -3,3 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.timer {
+  color: red;
+  margin-top: 50px;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+}
+
+.button-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Pacifico', cursive;
+}
