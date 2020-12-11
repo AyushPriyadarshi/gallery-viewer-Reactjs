@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/gallery-viewer-Reactjs/static/css/main.d5899bd2.chunk.css",
+    "main.js": "/gallery-viewer-Reactjs/static/js/main.426f295d.chunk.js",
+    "main.js.map": "/gallery-viewer-Reactjs/static/js/main.426f295d.chunk.js.map",
+    "runtime-main.js": "/gallery-viewer-Reactjs/static/js/runtime-main.1e9c0572.js",
+    "runtime-main.js.map": "/gallery-viewer-Reactjs/static/js/runtime-main.1e9c0572.js.map",
+    "static/js/2.b02e918c.chunk.js": "/gallery-viewer-Reactjs/static/js/2.b02e918c.chunk.js",
+    "static/js/2.b02e918c.chunk.js.map": "/gallery-viewer-Reactjs/static/js/2.b02e918c.chunk.js.map",
+    "static/js/3.8517dc2d.chunk.js": "/gallery-viewer-Reactjs/static/js/3.8517dc2d.chunk.js",
+    "static/js/3.8517dc2d.chunk.js.map": "/gallery-viewer-Reactjs/static/js/3.8517dc2d.chunk.js.map",
+    "index.html": "/gallery-viewer-Reactjs/index.html",
+    "static/css/main.d5899bd2.chunk.css.map": "/gallery-viewer-Reactjs/static/css/main.d5899bd2.chunk.css.map",
+    "static/js/2.b02e918c.chunk.js.LICENSE.txt": "/gallery-viewer-Reactjs/static/js/2.b02e918c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1e9c0572.js",
+    "static/js/2.b02e918c.chunk.js",
+    "static/css/main.d5899bd2.chunk.css",
+    "static/js/main.426f295d.chunk.js"
+  ]
+}
