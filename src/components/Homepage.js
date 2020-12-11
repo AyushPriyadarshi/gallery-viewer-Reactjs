@@ -58,7 +58,7 @@ const Homepage = () => {
       if (initialTime === 0 && startTimer) {
         console.log("done");
         setStartTimer(false);
-        setImages([]);
+        
         fetchImages();
         
       }
@@ -74,7 +74,7 @@ const Homepage = () => {
 
     axios
       .get(`${api}/photos/random?client_id=${accessKey}&count=10`)
-      .then(res => setImages([...images, ...res.data]))
+      .then(res => setImages([...res.data]))
 
   }
 
@@ -87,22 +87,14 @@ const Homepage = () => {
       {timerComponent ? <Timer initialTime={initialTime} /> :null}
       
       
-      <InfiniteScroll
-        dataLength ={images.length}
-        next = {fetchImages}
-        hasMore = {true}
-        loader = {<Loader />}
-      >
-
       
-
       <ImageWrapper>
       {images.map(image => (
         <Unsplash url={image.urls.thumb} key={image.id} />
       ))}
       </ImageWrapper>
     
-      </InfiniteScroll>
+    
       
     </div>
   )}
