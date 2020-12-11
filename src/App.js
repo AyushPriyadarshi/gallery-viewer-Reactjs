@@ -1,66 +1,37 @@
-import React, {useState,useEffect} from 'react';
+import React from 'react';
+import { Router, Route } from "react-router-dom";
+import HomePage from './components/Homepage';
+import { Navbar,Nav,Form,FormControl,Button } from 'react-bootstrap'
+import { createBrowserHistory as createHistory } from 'history';
+import ImageSearchPage from './components/ImageSearchPage';
+import './App.css';
+import  styled  from 'styled-components';
 
-//components
-import Heading from './components/Heading';
-import Unsplash from './components/Unsplash';
-import Loader from './components/Loader';
-import "./App.css";
+const history = createHistory();
 
-//Dependencies
-import axios from 'axios';
-import styled from 'styled-components'
-import infinteScroll from 'react-infinite-scroll-component'
-import InfiniteScroll from 'react-infinite-scroll-component';
-
-const ImageWrapper = styled.section`
-  max-width:rem;
-  margin:4rem auto;
-  display:grid;
-  grid-gap:1em;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  grid-auto-rows:300px;
-
+const H1 = styled.h1`
+    font-family:'Pacifico',cursive;
 `;
 
 function App() {
 
-  const [images,setImages] = useState([]);
-
-  useEffect(() => {
-    fetchImages();
-
-  },[])
-
-  const fetchImages = () => {
-
-    const api = "https://api.unsplash.com";
-    const accessKey = process.env.REACT_APP_ACCESSKEY;
-
-    axios
-      .get(`${api}/photos/random?client_id=${accessKey}&count=10`)
-      .then(res => setImages([...images, ...res.data]))
-
-  }
-
   return (
     <div className="App">
-      <Heading />
-      
-      <InfiniteScroll
-        dataLength ={images.length}
-        next = {fetchImages}
-        hasMore = {true}
-        loader = {<Loader />}
-      >
-
-      <ImageWrapper>
-      {images.map(image => (
-        <Unsplash url={image.urls.thumb} key={image.id} />
-      ))}
-      </ImageWrapper>
-    
-      </InfiniteScroll>
-      
+      <Router history={history}>
+        <Navbar bg="primary" expand="lg" variant="dark" >
+          <Navbar.Brand href="/"><H1>Gallery</H1></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+            </Nav>
+            <Form inline>
+              <FormControl type="text" placeholder="Image Search" className="mr-sm-2" />
+              <Button variant="outline-light">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Navbar>
+        <Route path="/" exact component={HomePage} />
+      </Router>
     </div>
   );
 }
